@@ -53,3 +53,55 @@ int main() {
 
     return 0;
 }
+
+void exibirMenu(float saldo) {
+    printf("===== MENU ATM =====\n");
+    printf("Saldo atual: R$ %.2f\n", saldo);
+    printf("1 - Consultar saldo\n");
+    printf("2 - Depositar\n");
+    printf("3 - Sacar\n");
+    printf("4 - Extrato\n");
+    printf("0 - Sair\n");
+    printf("Escolha uma opcao: ");
+}
+
+void consultarSaldo(float saldo) {
+    printf("\nSeu saldo atual e: R$ %.2f\n\n", saldo);
+    pausar();
+}
+
+float depositar(float saldo, Operacao historico[], int *total) {
+    float valor;
+    printf("Digite o valor para deposito: R$ ");
+    scanf("%f", &valor);
+
+    if (valor > 0) {
+        saldo += valor;
+        salvarOperacao(historico, total, "Deposito", valor, saldo);
+        printf("\nDeposito realizado com sucesso!\n");
+    } else {
+        printf("\nValor invalido!\n");
+    }
+
+    printf("Saldo atual: R$ %.2f\n\n", saldo);
+    pausar();
+    return saldo;
+}
+
+float sacar(float saldo, Operacao historico[], int *total) {
+    float valor;
+    printf("Digite o valor para saque: R$ ");
+    scanf("%f", &valor);
+
+    if (valor > 0 && valor <= saldo) {
+        saldo -= valor;
+        salvarOperacao(historico, total, "Saque", valor, saldo);
+        printf("\nSaque realizado com sucesso!\n");
+    } else {
+        printf("\nSaldo insuficiente ou valor invalido!\n");
+    }
+
+    printf("Saldo atual: R$ %.2f\n\n", saldo);
+    pausar();
+    return saldo;
+}
