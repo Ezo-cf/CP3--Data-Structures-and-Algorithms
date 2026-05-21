@@ -164,3 +164,6 @@ Curso: **Ciência da Computação**
 ## Observações
 
 Projeto acadêmico desenvolvido para fins educacionais, com foco na aplicação de conceitos de programação estruturada em linguagem C.
+
+Enzo Freitas RM-572037
+Lucas Pinheiro RM-573497
